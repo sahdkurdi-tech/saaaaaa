@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>بەخێربێن بۆ سایتی فۆڕمەکان</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <div class="logo"><i class="fas fa-home"></i> سایتی فۆڕمەکان</div>
+    <ul>
+      <li><a href="orphans.html"><i class="fas fa-child"></i> فۆڕمی بێ باوکان</a></li>
+      <li><a href="patients.html"><i class="fas fa-hospital-user"></i> فۆڕمی نەخۆشان</a></li>
+      <li><a href="poor.html"><i class="fas fa-hand-holding-usd"></i> فۆڕمی هەژاران</a></li>
+      <li><a href="allForms.html"><i class="fas fa-list-alt"></i> هەموو فۆڕمەکان</a></li>
+      <li><a href="admin.html"><i class="fas fa-cog"></i> ئیدارەی فۆڕمەکان</a></li>
+      <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> چوونە دەرەوە</a></li>
+    </ul>
+    <button id="toggle-dark-mode"><i class="fas fa-moon"></i> دۆخی شەوانە</button>
+  </nav>
+
+  <h1>بەخێربێن بۆ سایتی فۆڕمەکان</h1>
+
+  <button id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/main.js"></script>
+  <script>
+    // تبديل الوضع الليلي
+    document.getElementById('toggle-dark-mode').addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
+
+    // تحميل إعدادات الوضع الليلي من التخزين المحلي
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // زر الرجوع إلى الأعلى
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollToTopBtn.classList.add('active');
+        } else {
+            scrollToTopBtn.classList.remove('active');
+        }
+    });
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
